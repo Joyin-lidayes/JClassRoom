@@ -1,0 +1,393 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #E0F6FF 0%, #B3E5FC 100%);
+    color: #333;
+    position: relative;
+}
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+    border: 5px solid #4FC3F7;
+}
+h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #1976D2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.settings {
+    margin-bottom: 30px;
+}
+.settings label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #388E3C;
+}
+.settings input, .settings select {
+    width: 100%;
+    padding: 12px;
+    border: 3px solid #4FC3F7;
+    border-radius: 20px;
+    font-size: 18px;
+    text-align: center;
+    background: #E3F2FD;
+    color: #333;
+    margin: 0 10px;
+    font-family: 'Comic Sans MS', cursive;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.card {
+    width: 45%;
+    height: 200px;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #4FC3F7;
+    vertical-align: top;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#nameCard {
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+}
+#questionCard {
+    background: linear-gradient(135deg, #E8F5E8, #C8E6C9);
+}
+.progress {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: none;
+    font-weight: bold;
+}
+.buttons {
+    margin: 20px 0;
+}
+.btn {
+    padding: 15px 30px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+    transition: all 0.3s;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.draw-btn {
+    background: linear-gradient(45deg, #1976D2, #1565C0);
+    color: white;
+}
+.correct-btn {
+    background: linear-gradient(45deg, #4CAF50, #388E3C);
+    color: white;
+}
+.wrong-btn {
+    background: linear-gradient(45deg, #F44336, #D32F2F);
+    color: white;
+}
+.reset-btn {
+    background: linear-gradient(45deg, #FF9800, #F57C00);
+    color: white;
+}
+.scores {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    border: 3px solid #4FC3F7;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.scores h3 {
+    text-align: center;
+    color: #1976D2;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+#scoresTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Comic Sans MS', cursive;
+}
+#scoresTable th, #scoresTable td {
+    padding: 12px;
+    text-align: center;
+    border: 2px solid #4FC3F7;
+    border-radius: 10px;
+    margin: 5px;
+}
+#scoresTable th {
+    background: linear-gradient(135deg, #4FC3F7, #29B6F6);
+    color: white;
+    font-weight: bold;
+}
+#scoresTable td {
+    padding: 12px;
+    text-align: center;
+    border: 2px solid #4FC3F7;
+    border-radius: 10px;
+    margin: 5px;
+}
+#scoresTable tbody tr:nth-child(odd) td {
+    background: rgba(255, 255, 255, 0.95);
+}
+#scoresTable tbody tr:nth-child(even) td {
+    background: rgba(187, 222, 251, 0.8);
+}
+.operation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.correct-stat {
+    background: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+.wrong-stat {
+    background: #F44336;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+.settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: linear-gradient(45deg, #4FC3F7, #29B6F6);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+}
+.settings-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
+}
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background: linear-gradient(45deg, #4FC3F7, #29B6F6);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+}
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover {
+    color: black;
+}
+.modal h2 {
+    text-align: center;
+    color: #1976D2;
+    margin-bottom: 20px;
+}
+.modal textarea {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #4FC3F7;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Comic Sans MS', cursive;
+    resize: vertical;
+}
+.modal input {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #4FC3F7;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Comic Sans MS', cursive;
+    margin: 10px 0;
+}
+.modal button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+}
+.save-btn {
+    background: linear-gradient(45deg, #4CAF50, #388E3C);
+    color: white;
+}
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+.cancel-btn {
+    background: linear-gradient(45deg, #F44336, #D32F2F);
+    color: white;
+}
+.cancel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+}
+.add-btn {
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+    color: white;
+}
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+}
+.question-bank-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #4FC3F7;
+    position: relative;
+}
+.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: #F44336;
+    font-size: 20px;
+}
+.top-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+#questionBankSelect {
+    padding: 12px;
+    border: 3px solid #4FC3F7;
+    border-radius: 20px;
+    font-size: 18px;
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    color: #333;
+    font-family: 'Comic Sans MS', cursive;
+    margin-right: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+#questionBankSelect:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+}
+.top-controls label {
+    margin-right: 20px;
+    font-size: 18px;
+    color: #388E3C;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.top-controls input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 18px;
+    color: #388E3C;
+    font-weight: bold;
+    cursor: pointer;
+}
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #4FC3F7;
+    border-radius: 5px;
+    background: #E3F2FD;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s;
+}
+input[type="checkbox"]:checked + .custom-checkbox {
+    background: #4FC3F7;
+}
+input[type="checkbox"]:checked + .custom-checkbox::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}

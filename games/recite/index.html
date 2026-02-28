@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快题快背</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="backHomeBtn()">⬅️ 返回</button>
+    <button class="settings-btn" id="settingsBtn">⚙️ 设置</button>
+    <div class="container">
+        <h2>📚 快题快背</h2>
+        <div class="top-controls">
+            <select id="questionBankSelect">
+                <option value="">选择题库</option>
+            </select>
+            <label for="noRepeatCheckbox" class="checkbox-label">
+                <input type="checkbox" id="noRepeatCheckbox" style="display: none;">
+                <span class="custom-checkbox"></span> 不重复抽取
+            </label>
+            <button class="btn reset-btn" id="resetBtn">🔄 重置</button>
+        </div>
+        <div class="cards">
+            <div class="card" id="nameCard">准备就绪</div>
+            <div class="card" id="questionCard"><span id="questionText">等待抽取题目</span><div class="progress" id="questionProgress"></div></div>
+        </div>
+        <div class="buttons">
+            <button class="btn draw-btn" id="drawBtn">🎲 随机快抽</button>
+            <button class="btn correct-btn" id="correctBtn" style="display: none;">✅ 回答正确</button>
+            <button class="btn wrong-btn" id="wrongBtn" style="display: none;">❌ 回答错误</button>
+        </div>
+        <div class="scores">
+            <h3>👑 积分排行榜</h3>
+            <table id="scoresTable">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>姓名</th>
+                        <th>总积分</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Scores will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSettings()">&times;</span>
+            <h2>设置</h2>
+            <h3>背题库</h3>
+            <button class="add-btn" onclick="openAddQuestionBank()">➕ 添加题库</button>
+            <div id="questionBanksList">
+                <!-- Question banks will be listed here -->
+            </div>
+            <button class="save-btn" onclick="saveSettings()">保存</button>
+            <button class="cancel-btn" onclick="closeSettings()">取消</button>
+        </div>
+    </div>
+
+    <div id="addQuestionBankModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddQuestionBank()">&times;</span>
+            <h2>添加题库</h2>
+            <input type="text" id="bankNameInput" placeholder="题库名">
+            <textarea id="questionsTextarea" rows="10" placeholder="每行输入一个题目"></textarea>
+            <button class="save-btn" onclick="saveQuestionBank()">保存</button>
+            <button class="cancel-btn" onclick="closeAddQuestionBank()">取消</button>
+        </div>
+    </div>
+
+    <script src="../../assets/common/customInfo.js"></script>
+    <script src="../../assets/common/control.js"></script>
+    <script src="../../assets/common/dataManage.js"></script>
+    <script src="../../assets/common/studentManage.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

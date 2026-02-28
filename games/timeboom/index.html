@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间炸弹</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="backHomeBtn()">⬅️ 返回</button>
+    <button class="settings-btn" id="settingsBtn">⚙️ 设置</button>
+    <div class="container">
+        <div class="main active">
+            <h2 id="prompt">点击炸弹开始倒计时</h2>
+            <div class="bomb" id="bomb">
+                <div class="eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="cheeks">
+                    <div class="cheek"></div>
+                    <div class="cheek"></div>
+                </div>
+                <div class="mouth"></div>
+                <div class="fuse-spark"></div>
+            </div>
+            <div class="explosion" id="explosion">
+                <span class="boom-text">BOOM</span>
+                <div class="star" style="left: 50%; top: 50%; animation-delay: 0s; --tx: 0px; --ty: 0px;"></div>
+                <div class="star" style="left: 30%; top: 30%; animation-delay: 0.1s; --tx: -100px; --ty: -100px;"></div>
+                <div class="star" style="left: 70%; top: 30%; animation-delay: 0.2s; --tx: 100px; --ty: -100px;"></div>
+                <div class="star" style="left: 30%; top: 70%; animation-delay: 0.3s; --tx: -100px; --ty: 100px;"></div>
+                <div class="star" style="left: 70%; top: 70%; animation-delay: 0.4s; --tx: 100px; --ty: 100px;"></div>
+                <div class="star" style="left: 20%; top: 50%; animation-delay: 0.5s; --tx: -150px; --ty: 0px;"></div>
+                <div class="star" style="left: 80%; top: 50%; animation-delay: 0.6s; --tx: 150px; --ty: 0px;"></div>
+                <div class="star" style="left: 50%; top: 20%; animation-delay: 0.7s; --tx: 0px; --ty: -150px;"></div>
+                <div class="star" style="left: 50%; top: 80%; animation-delay: 0.8s; --tx: 0px; --ty: 150px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>设置倒计时范围</h2>
+            <label>最小时间 (秒): <input type="number" id="minTime" value="30"></label>
+            <label>最大时间 (秒): <input type="number" id="maxTime" value="60"></label>
+            <button class="save-btn" onclick="saveSettings()">保存</button>
+            <button class="cancel-btn" onclick="closeSettings()">取消</button>
+        </div>
+    </div>
+    
+    <script src="../../assets/common/customInfo.js"></script>
+    <script src="../../assets/common/control.js"></script>
+    <script src="../../assets/common/dataManage.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

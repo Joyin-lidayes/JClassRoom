@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安静小树</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="backHomeBtn()">⬅️ 返回</button>
+    <button class="settings-btn" id="settingsBtn">⚙️ 设置</button>
+    <div class="container">
+        <h1>嘘！让小树安静生长！ 🌳</h1>
+
+        <button class="start-btn" id="startBtn">开始检测</button>
+
+        <div class="decibel-display" id="decibelDisplay">当前分贝：-- dB</div>
+
+        <div class="grass-grid" id="grassGrid"></div>
+    </div>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>设置</h2>
+            <label>最低生长分贝值：</label><br>
+            <input type="number" id="minDecibelInput" placeholder="例如：50"><br>
+            <label>生长速度：</label><br>
+            <input type="range" id="growthSpeedInput" min="1" max="10" step="1" value="5">
+            <span id="speedValue">5</span>
+            <button class="save-btn" onclick="saveSettings()">保存</button>
+            <button class="cancel-btn" onclick="closeSettings()">取消</button>
+        </div>
+    </div>
+
+    <script src="../../assets/common/customInfo.js"></script>
+    <script src="../../assets/common/control.js"></script>
+    <script src="../../assets/common/dataManage.js"></script>
+    <script src="../../assets/common/studentManage.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

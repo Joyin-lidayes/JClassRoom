@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏课堂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="settings-btn" id="settingsBtn">⚙️ 设置</button>
+    <div class="container">
+        <img src="" alt="logo" class="logo">
+        <h1>🎉 <span id="teacher-name"></span>游戏课堂</h1>
+        <ul class="game-list">
+        </ul>
+    </div>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>设置</h2>
+            <div class="settings-section">
+                <h3>学生组管理</h3>
+                <div id="groups-container"></div>
+                <div class="add-group-section">
+                    <input type="text" id="new-group-name" placeholder="输入新组名">
+                    <button class="add-btn" onclick="addNewGroup()">添加组</button>
+                </div>
+            </div>
+            <div class="settings-section">
+                <h3>选择目标组</h3>
+                <select id="goal-group-select"></select>
+                <button class="set-btn" onclick="setGoalGroup()">设置目标组</button>
+            </div>
+            <div id="addStudentModal" class="sub-modal">
+                <div class="sub-modal-content">
+                    <span class="close-sub">&times;</span>
+                    <h3>添加学生到 <span id="current-group-name"></span></h3>
+                    <textarea id="add-student-names" placeholder="输入学生姓名，一行一个"></textarea>
+                    <button class="add-btn" onclick="addStudent()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/common/customInfo.js"></script>
+    <script src="assets/common/dataManage.js"></script>
+    <script src="assets/common/studentManage.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
