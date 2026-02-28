@@ -1,0 +1,13 @@
+**/*
+!.gitignore
+!assets/
+!assets/**
+!games/
+!games/**
+!index.html
+!scripts.js
+!style.css
+!main.js
+!package.json
+!README.md
+
