@@ -22,7 +22,7 @@ function startRollCall() {
     }
     const resultDiv = document.getElementById('result');
     resultDiv.classList.add('animating');
-    resultDiv.textContent = '🎲 正在选择小朋友...';
+    resultDiv.textContent = '🎲 正在选择...';
 
     let currentIndex = 0;
     animationInterval = setInterval(() => {

@@ -17,7 +17,7 @@ get_custom_info("logo").then(logo => {
 }).catch(error => console.error('Error loading logo info:', error));
 
 // 加载游戏列表
-get_custom_info("games").then(games => {
+get_all_games().then(games => {
     if (games) {
         const gameList = document.querySelector('.game-list');
         gameList.innerHTML = '';

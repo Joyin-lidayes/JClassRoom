@@ -1,9 +1,12 @@
 let custom_src;
+let extgams_src;
 
 if (window.location.href.includes('/games/')) {
     custom_src = "../../assets/custom/info.json";
+    extgams_src = "../../assets/custom/extGames.json";
 } else {
     custom_src = "assets/custom/info.json";
+    extgams_src = "assets/custom/extGames.json";
 }
 
 function get_custom_info(name) {
@@ -16,6 +19,21 @@ function get_custom_info(name) {
             console.error("Error fetching custom info:", error);
             return null;
         });
+}
+
+function get_all_games() {
+    // 获取 info.json 和 extGames.json 的 games 字段，并合并
+    return Promise.all([
+        fetch(custom_src).then(res => res.json()).catch(() => ({})),
+        fetch(extgams_src).then(res => res.json()).catch(() => ({}))
+    ]).then(([customData, extGamesData]) => {
+        const customGames = customData.games || [];
+        const extGames = extGamesData.games || [];
+        return [...customGames, ...extGames];
+    }).catch(error => {
+        console.error("Error fetching all games info:", error);
+        return [];
+    });
 }
 
 function get_game_info(game_name) {
