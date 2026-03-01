@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>软件信息</title>
+  <link rel="stylesheet" href="../../common/common.css">
+</head>
+<body class="main-bg">
+  <span style="font-size:18px;font-weight:bold;margin-left:18px;">软件信息</span>
+  <div class="container" style="max-width:340px;margin:0px auto 0 auto;padding:32px 24px 24px 24px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08);background:#fff;">
+    <img src="../../custom/logo.ico" alt="logo" class="logo" style="width:48px;height:48px;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;">
+    <h2 id="softName" style="text-align:center;margin-bottom:18px;font-size:22px;">JClassRoom</h2>
+    <ul style="list-style:none;padding:0;margin:0 0 18px 0;">
+      <li id="version" style="font-size:16px;margin-bottom:8px;"></li>
+      <li id="author" style="font-size:16px;"></li>
+    </ul>
+  </div>
+  <script src="../../common/customInfo.js"></script>
+  <script>
+    get_custom_info('teacher').then(teacher => {
+      document.getElementById('softName').innerText = teacher + '游戏课堂';
+    });
+    get_custom_info('logo').then(logo => {
+      if (logo) {
+        document.querySelector('.logo').src = '../../../' + logo;
+      }
+    });
+    get_base_info('version').then(version => {
+      let versionText = '版本：' + (version || '');
+      // 检查是否有新版本
+      if (window.latestVersionInfo && window.latestVersionInfo.version && version && window.latestVersionInfo.version !== version) {
+        versionText += ` <span style="color:#e67e22;font-size:14px;">有新版本 v${window.latestVersionInfo.version} <a href="${window.latestVersionInfo.url}" target="_blank" style="color:#3498db;text-decoration:underline;">下载</a></span>`;
+      }
+      document.getElementById('version').innerHTML = versionText;
+    });
+    get_base_info('author').then(author => {
+      document.getElementById('author').innerText = '作者：' + (author || '');
+    });
+  </script>
+</body>
+</html>

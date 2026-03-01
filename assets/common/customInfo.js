@@ -1,12 +1,19 @@
 let custom_src;
 let extgams_src;
+let baseInfo_src;
 
 if (window.location.href.includes('/games/')) {
     custom_src = "../../assets/custom/info.json";
     extgams_src = "../../assets/custom/extGames.json";
+    baseInfo_src = "../../assets/custom/baseInfo.json";
+} else if(window.location.href.includes('/pages/')) {
+    custom_src = "../../custom/info.json";
+    extgams_src = "../../custom/extGames.json";
+    baseInfo_src = "../../custom/baseInfo.json";
 } else {
     custom_src = "assets/custom/info.json";
     extgams_src = "assets/custom/extGames.json";
+    baseInfo_src = "assets/custom/baseInfo.json";
 }
 
 function get_custom_info(name) {
@@ -19,6 +26,24 @@ function get_custom_info(name) {
             console.error("Error fetching custom info:", error);
             return null;
         });
+}
+
+function get_all_base_info() {
+    return fetch(baseInfo_src)
+        .then(response => response.json())
+        .then(data => {
+            return data || {};
+        })
+        .catch(error => {
+            console.error("Error fetching base info:", error);
+            return {};
+        });
+}
+
+function get_base_info(name) {
+    return get_all_base_info().then(info => {
+        return info[name] || null;
+    });
 }
 
 function get_all_games() {

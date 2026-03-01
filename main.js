@@ -1,6 +1,9 @@
 const { app, BrowserWindow, Menu } = require('electron');
+const { checkForUpdates, latestVersionInfo } = require('./update');
 
 let isFrameless = true;
+let updateCancelCount = 0;
+let updateChecked = false;
 let isSwitching = false;
 
 function createWindow(bounds = null) {
@@ -58,6 +61,26 @@ function createWindow(bounds = null) {
               isSwitching = false;
             }, 100);
           }, 100);
+        }
+      },
+      {
+        label: '软件信息',
+        click: () => {
+          const infoWin = new BrowserWindow({
+            width: 350,
+            height: 220,
+            resizable: false,
+            minimizable: false,
+            maximizable: false,
+            autoHideMenuBar: true,
+            modal: true,
+            parent: currentWin,
+            webPreferences: {
+              nodeIntegration: true,
+              preload: __dirname + '/preload.js'
+            }
+          });
+          infoWin.loadFile('assets/pages/infoPage/info.html');
         }
       }
     ]);
