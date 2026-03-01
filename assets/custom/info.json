@@ -9,25 +9,25 @@
             "name": "安静小树",
             "file": "games/quiettree/",
             "icon": "🌲",
-            "statue": true
+            "status": true
         },
             {
             "name": "点名游戏",
             "file": "games/rollcall/",
             "icon": "🎯",
-            "statue": true
+            "status": true
         },
         {
             "name": "时间炸弹",
             "file": "games/timeboom/",
             "icon": "💣",
-            "statue": true
+            "status": true
         },
         {
             "name": "快题快背",
             "file": "games/recite/",
             "icon": "📚",
-            "statue": true
+            "status": true
         }
     ]
 }

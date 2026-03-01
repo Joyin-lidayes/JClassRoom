@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游戏课堂</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/common/common.css">
 </head>
 <body>
-    <button class="settings-btn" id="settingsBtn">⚙️ 设置</button>
+        <div class="drag-bar"></div>
+        <div class="top-bar">
+            <div id="window-controls" class="window-controls" style="display:none">
+                <button id="min-btn" class="window-btn" title="最小化"><img src="assets/common/images/icons/icon-minimize.svg" alt="最小化"/></button>
+                <button id="max-btn" class="window-btn" title="最大化"><img src="assets/common/images/icons/icon-maximize.svg" alt="最大化"/></button>
+                <button id="close-btn" class="window-btn" title="关闭"><img src="assets/common/images/icons/icon-close.svg" alt="关闭"/></button>
+            </div>
+            <button class="settings-btn" id="settingsBtn">⚙️ 设置</button>
+        </div>
     <div class="container">
         <img src="" alt="logo" class="logo">
         <h1>🎉 <span id="teacher-name"></span>游戏课堂</h1>
@@ -46,6 +55,7 @@
     <script src="assets/common/customInfo.js"></script>
     <script src="assets/common/dataManage.js"></script>
     <script src="assets/common/studentManage.js"></script>
+    <script src="assets/common/control.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

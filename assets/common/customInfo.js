@@ -1,4 +1,10 @@
-let custom_src = "../../assets/custom/info.json";
+let custom_src;
+
+if (window.location.href.includes('/games/')) {
+    custom_src = "../../assets/custom/info.json";
+} else {
+    custom_src = "assets/custom/info.json";
+}
 
 function get_custom_info(name) {
     return fetch(custom_src)
@@ -18,6 +24,6 @@ function get_game_info(game_name) {
             return games[game_name] || null;
         } else {
             return null;
-        }    
+        }
     });
 }

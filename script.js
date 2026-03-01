@@ -22,6 +22,7 @@ get_custom_info("games").then(games => {
         const gameList = document.querySelector('.game-list');
         gameList.innerHTML = '';
         games.forEach(game => {
+            if (!game.status) return;
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = game.file + 'index.html';

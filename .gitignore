@@ -6,6 +6,7 @@
 !games/**
 !index.html
 !scripts.js
+!preload.js
 !style.css
 !main.js
 !package.json
